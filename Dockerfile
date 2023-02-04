@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.20-alpine AS build
+ARG ARCH=
+FROM ${ARCH}golang:1.20-alpine AS build
 
 WORKDIR /app
 
@@ -8,7 +9,7 @@ COPY *.go go.mod ./
 
 RUN go build -o /justsayok
 
-FROM scratch
+FROM ${ARCH}scratch
 
 ENV PORT 3000
 

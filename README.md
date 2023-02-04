@@ -14,3 +14,11 @@ Run the Docker image instead with `docker run --rm -it -p 3000:3000 cloudership/
 Build the Docker image with `docker build -t cloudership/justsayok:latest .`
 
 Push to the Cloudership repo on Docker Hub (after logging in) with `docker push cloudership/justsayok:latest`
+
+## Multi-Arch Support
+
+To build and push AMD64 and ARM64 architecture images:
+
+```
+docker buildx build --push --platform linux/arm64,linux/amd64 --tag cloudership/justsayok:latest .
+```
