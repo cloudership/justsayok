@@ -5,11 +5,8 @@ import (
 	"os"
 )
 
-func helloWorld(w http.ResponseWriter, r *http.Request) {
-}
-
 func main() {
-	http.HandleFunc("/", helloWorld)
+	http.HandleFunc("/", func(http.ResponseWriter, *http.Request) {})
 	var port, ok = os.LookupEnv("PORT")
 	if !ok {
 		port = "3000"
